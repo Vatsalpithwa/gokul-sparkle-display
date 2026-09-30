@@ -1,102 +1,219 @@
-# Gokul's Digital Storefront
+# 🛒 Gokul Electronics — Store Website
 
-Build a modern, responsive website for “Gokul Electronics,” a local electronics and appliances store in Pune, using only HTML, CSS, and vanilla JavaScript.
+A modern, fully responsive, single-page website for **Gokul Electronics**, a trusted electronics & appliances store in Dhanori, Pune. Built with **pure HTML, CSS and vanilla JavaScript** — no frameworks, no build tools, no dependencies. Open `index.html` and it just works.
 
-Store details:
+**Live site**: [gokul-sparkle-display.lovable.app](https://gokul-sparkle-display.lovable.app)
 
-- Name: Gokul Electronics
+---
 
-- Headline: “Your Trusted Electronics & Appliances Store in Dhanori”
+## 📑 Table of Contents
 
-- Address: Gokul Residency, Opp. Canara Bank, Madhav Nagar, Dhanori, Pune, Maharashtra 411015
+- [About the Store](#-about-the-store)
+- [Features](#-features)
+- [Screenshots](#-screenshots)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [How It Works](#-how-it-works)
+  - [Product Catalogue & Search](#1-product-catalogue--search)
+  - [Customer Reviews](#2-customer-reviews)
+  - [Owner Product Management](#3-owner-product-management)
+  - [Open / Closed Status](#4-open--closed-status)
+  - [Custom Crosshair Cursor](#5-custom-crosshair-cursor)
+- [Data & localStorage](#-data--localstorage)
+- [Accessibility](#-accessibility)
+- [Performance](#-performance)
+- [Customization Guide](#-customization-guide)
+- [Deployment](#-deployment)
+- [Credits](#-credits)
 
-- Phone: 077750 11155
+---
 
-- Business hours: Open daily, closes at 9:00 PM
+## 🏪 About the Store
 
-- Products: TVs, refrigerators, air coolers, washing machines, appliances, and other electronics.
+| | |
+|---|---|
+| **Name** | Gokul Electronics |
+| **Tagline** | Your Trusted Electronics & Appliances Store in Dhanori |
+| **Address** | Gokul Residency, Opp. Canara Bank, Madhav Nagar, Dhanori, Pune, Maharashtra 411015 |
+| **Phone** | [077750 11155](tel:07775011155) |
+| **Hours** | Open daily · Closes at 9:00 PM |
+| **Products** | TVs, Refrigerators, Air Coolers, Washing Machines, Home Appliances & Accessories |
 
-Requirements:
+---
 
-1. Create a premium, attractive, mobile-friendly UI with smooth scrolling, hover effects, reveal animations, animated counters, and subtle background effects.
+## ✨ Features
 
-2. Add a hero section with a strong headline, “Shop Now” and “Call Us” buttons, plus an active/open status indicator based on shop timings.
+### For Customers
+- 🦸 **Hero section** with headline, *Shop Now* & *Call Us* CTAs and a live **open/closed status indicator** based on shop timings
+- 🛍️ **Product cards** with image, name, description, original vs. discounted price, bright **discount badges** (e.g. `50% OFF`) and an **Enquire Now** button
+- 🔍 **Instant search** — filters products live by name or category as you type
+- 🗂️ **Category filters** — TVs, Refrigerators, Coolers, Washing Machines, Accessories (and All)
+- ⭐ **Customer reviews** — star ratings, review form, and submissions saved in the browser so they survive a refresh
+- 📍 **Contact section** with address, Google Maps link, business hours and click-to-call buttons
 
-3. Add a products section with product cards. Each card must include:
+### For the Shop Owner
+- 🧰 **Built-in product management panel** — add new products, edit name / image URL / price / discount / description, delete products, and reset to the default catalogue. All changes persist via `localStorage`.
 
-   - Product image placeholder
+### Design & Polish
+- 🌙 Premium dark theme with gradient orbs, soft glows and animated background effects
+- 🖱️ **Custom animated crosshair cursor** on desktop (normal touch behavior on mobile)
+- 🎞️ Scroll reveal animations, hover lifts, animated stat counters and smooth scrolling
+- 📱 Fully responsive — mobile hamburger menu, fluid grids, touch-friendly targets
 
-   - Product name
+---
 
-   - Short description
+## 🖼️ Screenshots
 
-   - Original price and discounted price
+> Add your own screenshots here after pushing to GitHub (e.g. `docs/screenshot-home.png`).
 
-   - Bright discount badge, such as “50% OFF”
+| Home | Products |
+|------|----------|
+| _Hero with open status & CTAs_ | _Filterable product grid_ |
 
-   - “Enquire Now” button
+---
 
-4. Include a search bar that filters products instantly by name/category.
+## 🧰 Tech Stack
 
-5. Add category filters, such as TVs, Refrigerators, Coolers, Washing Machines, and Accessories.
+| Layer | Choice | Why |
+|-------|--------|-----|
+| Markup | Semantic **HTML5** | Accessibility & SEO out of the box |
+| Styling | **CSS3** (custom properties, grid, flexbox, keyframes) | No framework overhead |
+| Logic | **Vanilla JavaScript (ES6+)** | Zero dependencies, instant load |
+| Storage | **Web localStorage** | Persistence without a backend |
+| Images | Unsplash placeholders | Free, high-quality product photos |
+| Fonts | Google Fonts — *Sora* (headings) & *Manrope* (body) | Modern, legible typography |
 
-6. Add a customer reviews section:
+---
 
-   - Display existing reviews
+## 📁 Project Structure
 
-   - Provide a review form with name, star rating, and message
+```text
+├── public/
+│   └── site/
+│       ├── index.html      # Page structure: hero, products, reviews, manage, contact, footer
+│       ├── style.css       # Theme tokens, layout, animations, responsive & mobile styles
+│       └── script.js       # Catalogue, search, filters, reviews, management, cursor, counters
+├── src/
+│   └── routes/
+│       └── index.tsx       # Redirects "/" to the static site + SEO metadata
+└── README.md
+```
 
-   - Save submitted reviews using localStorage so they remain after refresh
+The website itself lives entirely in `public/site/` — three files, cleanly separated.
 
-7. Add an editable product-management section for the shop owner:
+---
 
-   - Add new products
+## 🚀 Getting Started
 
-   - Edit existing product name, image URL, price, discount, and description
+No build step required. Pick any option:
 
-   - Delete products
+### Option 1 — Just open it
+```bash
+# double-click index.html, or
+open public/site/index.html
+```
 
-   - Store changes in localStorage
+### Option 2 — Local server (recommended)
+```bash
+npx serve public/site
+# or
+python3 -m http.server 8000 --directory public/site
+```
+Then visit the printed URL (e.g. `http://localhost:8000`).
 
-8. Add contact, address, map link, business hours, and call-to-action sections.
-
-9. Use a custom animated crosshair cursor on desktop, while keeping normal touch behavior on mobile.
-
-10. Include a clean footer with quick links and contact details.
-
-11. Make the site accessible, fast, easy to navigate, and visually polished.
-
-12. Use placeholder product images from Unsplash or a reliable image URL source.
-
-13. Organize the code cleanly into:
-
-   - index.html
-
-   - style.css
-
-   - script.js
-
-Do not use frameworks or external build tools. Make the website fully functional in a browser.
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://gokul-sparkle-display.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/c3444a01-cf0b-4443-91c3-2f8065ae54c2).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
+### Option 3 — Clone the repo
+```bash
 git clone <this-repository-url>
 cd <repository-name>
-npm i
-npm run dev
+# then open public/site/index.html
 ```
+
+---
+
+## ⚙️ How It Works
+
+### 1. Product Catalogue & Search
+- The default catalogue ships as a JS array in `script.js` (12 products across 5 categories).
+- On load, saved products from `localStorage` override the defaults.
+- The search box filters by **name and category** on every keystroke; category chips narrow the grid further.
+- Discount badges and sale prices are computed from `price` + `discount %`.
+
+### 2. Customer Reviews
+- Reviews render as cards with an interactive **star picker** (1–5).
+- The form validates name, rating and message, then appends the review and saves it.
+- Submissions persist across refreshes via `localStorage`.
+
+### 3. Owner Product Management
+- The **Manage** section provides an add/edit form plus delete buttons on each card.
+- Editing pre-fills the form; saving recomputes the discount badge automatically.
+- **Reset** restores the original default catalogue (useful if image URLs go stale).
+
+### 4. Open / Closed Status
+- The hero badge reads the browser clock and shows **Open Now · closes 9 PM** between 10:00 AM and 9:00 PM, otherwise **Closed · opens 10 AM**.
+
+### 5. Custom Crosshair Cursor
+- A crosshair + ring element follows the mouse with a smooth trail on pointer-fine devices only.
+- Touch devices keep the default cursor/tap behavior — detected via media queries, not user-agent sniffing.
+
+---
+
+## 💾 Data & localStorage
+
+| Key | Contents |
+|-----|----------|
+| `gokul.products.v2` | The full product catalogue (owner edits) |
+| `gokul.reviews.v1` | Customer reviews |
+
+- Data is per-browser — it lives on the visitor's device, not a server.
+- Clearing site data resets the store to defaults. The **Reset catalogue** button does the same in one click.
+
+---
+
+## ♿ Accessibility
+
+- Semantic landmarks (`header`, `main`, `nav`, `section`, `footer`) with skip-to-content link
+- Visible keyboard focus styles and full keyboard operability for menus, forms and filters
+- `aria-expanded` on the mobile menu toggle, labelled form controls, and decorative effects marked `aria-hidden`
+- Sufficient color contrast in the dark theme
+
+---
+
+## ⚡ Performance
+
+- **Zero frameworks** — the whole site is 3 static files
+- Google Fonts loaded with `preconnect` + `display=swap`
+- Images lazy-loaded from Unsplash; CSS animations are GPU-friendly (transform/opacity)
+- No network calls at runtime beyond fonts and images
+
+---
+
+## 🎨 Customization Guide
+
+| I want to… | Edit this |
+|------------|-----------|
+| Change store name, phone or address | `public/site/index.html` (header, contact, footer) |
+| Change shop opening hours | `script.js` → the status-indicator hours check |
+| Change colors / theme | `style.css` → CSS custom properties at the top |
+| Change default products | `script.js` → `DEFAULT_PRODUCTS` array |
+| Swap product photos | Owner panel → Edit → paste any image URL |
+
+---
+
+## 📦 Deployment
+
+The site is static and deploys anywhere:
+
+- **Lovable (current)**: auto-deployed to [gokul-sparkle-display.lovable.app](https://gokul-sparkle-display.lovable.app)
+- **GitHub Pages**: push the repo → Settings → Pages → deploy from branch
+- **Netlify / Vercel / Cloudflare Pages**: drag-and-drop the `public/site` folder, no config needed
+
+---
+
+## 📄 License
+
+© Gokul Electronics, Dhanori, Pune. All rights reserved.
+
+---
+
+Built with ❤️ using [Lovable](https://lovable.dev) — continue developing this project in the [Lovable editor](https://lovable.dev/projects/c3444a01-cf0b-4443-91c3-2f8065ae54c2).
